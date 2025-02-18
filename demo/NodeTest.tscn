@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://cghc5aoyvr3ln"]
+
+[ext_resource type="Texture2D" uid="uid://jfrl6t8ao3jk" path="res://icon.svg" id="1_vtoya"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="GDExample" type="GDExample" parent="."]
+amplitude = 50.0
+position = Vector2(1.76969, 59.5687)
+texture = ExtResource("1_vtoya")
