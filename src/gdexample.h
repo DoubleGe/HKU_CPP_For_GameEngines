@@ -13,6 +13,7 @@ namespace godot {
 		double time_emit;
 		double amplitude;
 		double speed;
+		int myInt;
 
 	protected:
 		static void _bind_methods();

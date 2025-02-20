@@ -20,6 +20,8 @@ GDExample::GDExample() {
 	time_passed = 0.0;
 	amplitude = 10.0;
 	speed = 1.0;
+
+	myInt = 10;
 }
 
 GDExample::~GDExample() {
@@ -27,6 +29,7 @@ GDExample::~GDExample() {
 }
 
 void GDExample::_process(double delta) {
+	set_position(Vector2(myInt, myInt));
 	time_passed += speed * delta;
 
 	Vector2 new_position = Vector2(

@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://hew46fcvn0i5"]
+
+[ext_resource type="PackedScene" uid="uid://bajaix0o8bst4" path="res://Prefabs/Paddle.tscn" id="1_neojh"]
+
+[node name="Game" type="Node2D"]
+
+[node name="PaddleMovement" parent="." instance=ExtResource("1_neojh")]
+process_mode = 3
+position = Vector2(0, 294)
+
+[node name="Camera2D" type="Camera2D" parent="."]

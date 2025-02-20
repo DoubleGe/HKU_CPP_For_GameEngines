@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://bajaix0o8bst4"]
+
+[ext_resource type="Texture2D" uid="uid://dxuylupvyh6n" path="res://Sprites/Paddle/Paddle_B_Yellow_128x28.png" id="1_fxome"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nef5x"]
+size = Vector2(126, 26)
+
+[node name="PaddleMovement" type="PaddleMovement"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_fxome")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_nef5x")
