@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://hew46fcvn0i5"]
+[gd_scene load_steps=3 format=3 uid="uid://hew46fcvn0i5"]
 
 [ext_resource type="PackedScene" uid="uid://bajaix0o8bst4" path="res://Prefabs/Paddle.tscn" id="1_neojh"]
+[ext_resource type="PackedScene" uid="uid://dqxuoucl3xfoc" path="res://Prefabs/Ball.tscn" id="2_lva53"]
 
 [node name="Game" type="Node2D"]
 
@@ -9,3 +10,11 @@ process_mode = 3
 position = Vector2(0, 294)
 
 [node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Walls" type="StaticBody2D" parent="."]
+
+[node name="Collision" type="CollisionPolygon2D" parent="Walls"]
+polygon = PackedVector2Array(-576, 320, -576, -328, 576, -328, 576, 328, 640, 328, 640, -384, -640, -384, -640, 320)
+
+[node name="Ball" parent="." instance=ExtResource("2_lva53")]
+position = Vector2(0, 220)
