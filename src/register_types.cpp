@@ -3,6 +3,8 @@
 #include "gdexample.h"
 #include "PaddleMovement.h"
 #include "Ball.h"
+#include "Brick.h"
+#include "BrickSpawner.h"
 
 #include <gdextension_interface.h>
 #include <godot_cpp/core/defs.hpp>
@@ -18,6 +20,8 @@ void initialize_example_module(ModuleInitializationLevel p_level) {
 	GDREGISTER_CLASS(GDExample);
 	GDREGISTER_CLASS(PaddleMovement);
 	GDREGISTER_CLASS(Ball);
+	GDREGISTER_CLASS(Brick);
+	GDREGISTER_CLASS(BrickSpawner)
 }
 
 void uninitialize_example_module(ModuleInitializationLevel p_level) {

@@ -15,6 +15,7 @@ namespace godot {
         static void _bind_methods();
 
     public:
+        void _ready();
         void _process(double delta) override;
         void set_speed(float p_speed);
         float get_speed() const;

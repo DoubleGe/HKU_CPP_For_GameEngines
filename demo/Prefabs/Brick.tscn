@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://bwxjbi4b5lct8"]
+
+[ext_resource type="Texture2D" uid="uid://5ue2stwv7ets" path="res://Sprites/Bricks/Colored_Red-128x32.png" id="1_l40g5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mxux7"]
+size = Vector2(114, 24)
+
+[node name="Brick" type="Brick"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(3.33786e-06, 0)
+scale = Vector2(0.890625, 0.75)
+texture = ExtResource("1_l40g5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_mxux7")

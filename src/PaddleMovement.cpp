@@ -13,6 +13,10 @@ void PaddleMovement::_bind_methods() {
 	ADD_PROPERTY(PropertyInfo(Variant::FLOAT, "speed"), "set_speed", "get_speed");
 }
 
+void PaddleMovement::_ready() {
+	add_to_group("paddle");
+}
+
 void PaddleMovement::_process(double delta) 
 {
 	Engine* engine{ Engine::get_singleton() };

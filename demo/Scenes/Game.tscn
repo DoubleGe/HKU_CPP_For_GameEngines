@@ -1,9 +1,21 @@
-[gd_scene load_steps=3 format=3 uid="uid://hew46fcvn0i5"]
+[gd_scene load_steps=10 format=3 uid="uid://hew46fcvn0i5"]
 
 [ext_resource type="PackedScene" uid="uid://bajaix0o8bst4" path="res://Prefabs/Paddle.tscn" id="1_neojh"]
+[ext_resource type="Texture2D" uid="uid://b01rrmh7kpa6t" path="res://Sprites/Bricks/Colored_Blue-128x32.png" id="2_eghp6"]
 [ext_resource type="PackedScene" uid="uid://dqxuoucl3xfoc" path="res://Prefabs/Ball.tscn" id="2_lva53"]
+[ext_resource type="PackedScene" uid="uid://bwxjbi4b5lct8" path="res://Prefabs/Brick.tscn" id="3_hsieh"]
+[ext_resource type="Texture2D" uid="uid://bsdmd1lvgxd6m" path="res://Sprites/Bricks/Colored_Green-128x32.png" id="3_imvla"]
+[ext_resource type="Texture2D" uid="uid://ddblvocxj3gno" path="res://Sprites/Bricks/Colored_Orange-128x32.png" id="4_blew7"]
+[ext_resource type="Texture2D" uid="uid://cte5p14qh0nly" path="res://Sprites/Bricks/Colored_Purple-128x32.png" id="5_48xy8"]
+[ext_resource type="Texture2D" uid="uid://5ue2stwv7ets" path="res://Sprites/Bricks/Colored_Red-128x32.png" id="6_2rxu6"]
+[ext_resource type="Texture2D" uid="uid://d17u12l38gusc" path="res://Sprites/Bricks/Colored_Yellow-128x32.png" id="7_01wto"]
 
 [node name="Game" type="Node2D"]
+
+[node name="BrickSpawner" type="BrickSpawner" parent="."]
+brickPrefab = ExtResource("3_hsieh")
+brickSprites = [ExtResource("2_eghp6"), ExtResource("3_imvla"), ExtResource("4_blew7"), ExtResource("5_48xy8"), ExtResource("6_2rxu6"), ExtResource("7_01wto")]
+position = Vector2(3, 6)
 
 [node name="PaddleMovement" parent="." instance=ExtResource("1_neojh")]
 process_mode = 3
