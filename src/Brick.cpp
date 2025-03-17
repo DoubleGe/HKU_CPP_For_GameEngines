@@ -1,19 +1,44 @@
 #include "Brick.h"
 
-#include <godot_cpp/core/class_db.hpp> 
+#include <godot_cpp/core/class_db.hpp>
 #include <godot_cpp/variant/utility_functions.hpp>
+#include <godot_cpp/classes/engine.hpp>
+#include <godot_cpp/classes/audio_stream_player2d.hpp>
+#include <godot_cpp/classes/audio_stream.hpp>
 
 using namespace godot;
 
 void Brick::_bind_methods() {
-    ClassDB::bind_method(D_METHOD("destroy"), &Brick::destroy);
+	ClassDB::bind_method(D_METHOD("destroy"), &Brick::destroy);
+}
+
+Brick::Brick()
+{
+	breakSound = nullptr;
+}
+
+Brick::~Brick()
+{
 }
 
 
 void Brick::_ready() {
-    add_to_group("brick");  
+	Engine* engine{ Engine::get_singleton() };
+	if (engine->is_editor_hint()) return;
+
+	add_to_group("brick");
+
+	breakSound = get_node<AudioStreamPlayer2D>("BreakSound");
 }
 
 void Brick::destroy() {
-    queue_free(); 
+	if (breakSound && breakSound->get_stream().is_valid()) {
+		UtilityFunctions::print("Playing break sound at position: ", get_global_position());
+		breakSound->play();
+		remove_child(breakSound);
+		get_parent()->add_child(breakSound);
+		breakSound->set_owner(get_parent());
+		breakSound->connect("finished", Callable(breakSound, "queue_free"), CONNECT_ONE_SHOT);
+	}
+	queue_free();
 }

@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://bwxjbi4b5lct8"]
+[gd_scene load_steps=4 format=3 uid="uid://bwxjbi4b5lct8"]
 
 [ext_resource type="Texture2D" uid="uid://5ue2stwv7ets" path="res://Sprites/Bricks/Colored_Red-128x32.png" id="1_l40g5"]
+[ext_resource type="AudioStream" uid="uid://frvr6htyehdu" path="res://Audio/BrickBreak.mp3" id="2_m5xs4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mxux7"]
 size = Vector2(114, 24)
@@ -14,3 +15,7 @@ texture = ExtResource("1_l40g5")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_mxux7")
+
+[node name="BreakSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_m5xs4")
+max_distance = 3000.0

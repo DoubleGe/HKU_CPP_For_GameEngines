@@ -1,6 +1,7 @@
 #include <godot_cpp/variant/utility_functions.hpp>
 #include <godot_cpp/classes/scene_tree.hpp>  
 #include <godot_cpp/classes/sprite2d.hpp>
+#include <godot_cpp/classes/engine.hpp>
 
 #include "BrickSpawner.h"
 
@@ -22,6 +23,9 @@ void BrickSpawner::_bind_methods() {
 }
 
 void BrickSpawner::_ready() {
+    Engine* engine{ Engine::get_singleton() };
+    if (engine->is_editor_hint()) return;
+
     SpawnBricks();
 }
 

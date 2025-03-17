@@ -2,6 +2,7 @@
 #define BALL_MOVEMENT_H
 
 #include <godot_cpp/classes/character_body2d.hpp>
+#include <godot_cpp/classes/audio_stream_player2d.hpp>
 
 namespace godot {
 
@@ -9,10 +10,16 @@ namespace godot {
         GDCLASS(Ball, CharacterBody2D)
 
     private:
+        AudioStreamPlayer2D* bounceSound;
+
         Vector2 velocity;
         float speed = 300.0f;
 
+        void PlayBounceSound();
+
     public:
+        Ball();
+        ~Ball();
         static void _bind_methods();
         void _ready();
         void _physics_process(double delta);

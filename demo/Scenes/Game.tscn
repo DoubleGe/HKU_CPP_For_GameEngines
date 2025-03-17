@@ -23,6 +23,8 @@ position = Vector2(0, 294)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
+[node name="AudioListener2D" type="AudioListener2D" parent="Camera2D"]
+
 [node name="Walls" type="StaticBody2D" parent="."]
 
 [node name="Collision" type="CollisionPolygon2D" parent="Walls"]
