@@ -1,4 +1,5 @@
 #include "Brick.h"
+#include "ScoreDisplay.h"
 
 #include <godot_cpp/core/class_db.hpp>
 #include <godot_cpp/variant/utility_functions.hpp>
@@ -32,8 +33,11 @@ void Brick::_ready() {
 }
 
 void Brick::destroy() {
+
+	ScoreDisplay* scoreDisplay = get_node<ScoreDisplay>("/root/Game/ScoreDisplay");
+	if (scoreDisplay) scoreDisplay->AddScore(100);
+
 	if (breakSound && breakSound->get_stream().is_valid()) {
-		UtilityFunctions::print("Playing break sound at position: ", get_global_position());
 		breakSound->play();
 		remove_child(breakSound);
 		get_parent()->add_child(breakSound);

@@ -5,6 +5,7 @@
 #include "Ball.h"
 #include "Brick.h"
 #include "BrickSpawner.h"
+#include "ScoreDisplay.h"
 
 #include <gdextension_interface.h>
 #include <godot_cpp/core/defs.hpp>
@@ -21,7 +22,8 @@ void initialize_example_module(ModuleInitializationLevel p_level) {
 	GDREGISTER_CLASS(PaddleMovement);
 	GDREGISTER_CLASS(Ball);
 	GDREGISTER_CLASS(Brick);
-	GDREGISTER_CLASS(BrickSpawner)
+	GDREGISTER_CLASS(BrickSpawner);
+	GDREGISTER_CLASS(ScoreDisplay);
 }
 
 void uninitialize_example_module(ModuleInitializationLevel p_level) {

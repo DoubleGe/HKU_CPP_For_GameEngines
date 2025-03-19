@@ -32,3 +32,13 @@ polygon = PackedVector2Array(-576, 320, -576, -328, 576, -328, 576, 328, 640, 32
 
 [node name="Ball" parent="." instance=ExtResource("2_lva53")]
 position = Vector2(0, 220)
+
+[node name="ScoreDisplay" type="ScoreDisplay" parent="."]
+
+[node name="ScoreLabel" type="Label" parent="ScoreDisplay"]
+offset_left = -570.0
+offset_top = -323.0
+offset_right = -469.0
+offset_bottom = -292.0
+theme_override_font_sizes/font_size = 22
+text = "00000000"
