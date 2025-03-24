@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://bofvh5k8gl53n"]
+
+[node name="StartScreen" type="StartScreen"]
+
+[node name="TitleLabel" type="Label" parent="."]
+offset_left = 440.0
+offset_top = 103.0
+offset_right = 708.0
+offset_bottom = 186.0
+theme_override_font_sizes/font_size = 60
+text = "Breakout"
+horizontal_alignment = 1
+
+[node name="StartButton" type="Button" parent="."]
+offset_left = 411.0
+offset_top = 285.0
+offset_right = 742.0
+offset_bottom = 373.0
+theme_override_font_sizes/font_size = 48
+text = "Start"
+
+[node name="QuitButton" type="Button" parent="."]
+offset_left = 412.0
+offset_top = 384.0
+offset_right = 743.0
+offset_bottom = 472.0
+theme_override_font_sizes/font_size = 48
+text = "Quit"

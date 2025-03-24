@@ -6,6 +6,7 @@
 #include "Brick.h"
 #include "BrickSpawner.h"
 #include "ScoreDisplay.h"
+#include "StartScreen.h"
 
 #include <gdextension_interface.h>
 #include <godot_cpp/core/defs.hpp>
@@ -24,6 +25,7 @@ void initialize_example_module(ModuleInitializationLevel p_level) {
 	GDREGISTER_CLASS(Brick);
 	GDREGISTER_CLASS(BrickSpawner);
 	GDREGISTER_CLASS(ScoreDisplay);
+	GDREGISTER_CLASS(StartScreen);
 }
 
 void uninitialize_example_module(ModuleInitializationLevel p_level) {
