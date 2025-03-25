@@ -3,15 +3,13 @@
 
 #include <godot_cpp/classes/label.hpp>
 #include <godot_cpp/classes/node.hpp>
-#include <godot_cpp/variant/string.hpp>
 
 namespace godot {
 
     class ScoreDisplay : public Node {
         GDCLASS(ScoreDisplay, Node)
 
-    private:
-        int score = 0;         
+    private:       
         Label* score_label;     
 
     public:

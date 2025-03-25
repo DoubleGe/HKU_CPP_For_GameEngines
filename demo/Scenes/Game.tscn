@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://hew46fcvn0i5"]
+[gd_scene load_steps=11 format=3 uid="uid://hew46fcvn0i5"]
 
 [ext_resource type="PackedScene" uid="uid://bajaix0o8bst4" path="res://Prefabs/Paddle.tscn" id="1_neojh"]
 [ext_resource type="Texture2D" uid="uid://b01rrmh7kpa6t" path="res://Sprites/Bricks/Colored_Blue-128x32.png" id="2_eghp6"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://cte5p14qh0nly" path="res://Sprites/Bricks/Colored_Purple-128x32.png" id="5_48xy8"]
 [ext_resource type="Texture2D" uid="uid://5ue2stwv7ets" path="res://Sprites/Bricks/Colored_Red-128x32.png" id="6_2rxu6"]
 [ext_resource type="Texture2D" uid="uid://d17u12l38gusc" path="res://Sprites/Bricks/Colored_Yellow-128x32.png" id="7_01wto"]
+[ext_resource type="AudioStream" uid="uid://bgavk70540hyu" path="res://Audio/Solo.mp3" id="10_xaap4"]
 
 [node name="Game" type="Node2D"]
 
@@ -42,3 +43,8 @@ offset_right = -469.0
 offset_bottom = -292.0
 theme_override_font_sizes/font_size = 22
 text = "00000000"
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("10_xaap4")
+volume_db = -4.0
+autoplay = true

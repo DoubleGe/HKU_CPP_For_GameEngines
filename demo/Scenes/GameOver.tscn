@@ -1,0 +1,49 @@
+[gd_scene format=3 uid="uid://5o20gv230k2n"]
+
+[node name="GameOver" type="GameOver"]
+
+[node name="CurrentScoreLabel" type="Label" parent="."]
+offset_left = 458.0
+offset_top = 195.0
+offset_right = 691.0
+offset_bottom = 237.0
+theme_override_font_sizes/font_size = 30
+text = "Score: 00000000"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HighScoreLabel" type="Label" parent="."]
+offset_left = 432.0
+offset_top = 241.0
+offset_right = 713.0
+offset_bottom = 283.0
+theme_override_font_sizes/font_size = 30
+text = "Highscore: 0000000"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="GameOverLabel" type="Label" parent="."]
+offset_left = 434.0
+offset_top = 105.0
+offset_right = 705.0
+offset_bottom = 174.0
+theme_override_font_sizes/font_size = 50
+text = "Game Over"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="QuitButton" type="Button" parent="."]
+offset_left = 462.0
+offset_top = 338.0
+offset_right = 575.0
+offset_bottom = 388.0
+theme_override_font_sizes/font_size = 30
+text = "Quit"
+
+[node name="RestartButton" type="Button" parent="."]
+offset_left = 580.0
+offset_top = 337.0
+offset_right = 693.0
+offset_bottom = 387.0
+theme_override_font_sizes/font_size = 30
+text = "Restart"

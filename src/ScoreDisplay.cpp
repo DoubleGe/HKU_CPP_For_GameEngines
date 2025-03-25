@@ -2,9 +2,10 @@
 #include <godot_cpp/core/class_db.hpp>
 #include <godot_cpp/classes/engine.hpp>
 
+#include "GameState.h"
+
 namespace godot {
 	ScoreDisplay::ScoreDisplay() {
-		score = 0;
 		score_label = nullptr;
 	}
 
@@ -27,19 +28,26 @@ namespace godot {
 	}
 
 	void ScoreDisplay::AddScore(int value) {
-		score += value;
+		GameState* gameState = Object::cast_to<GameState>(get_node<Node>("/root/GlobalGameState"));
+		if (gameState) gameState->AddScore(value);
+		
 		UpdateScoreText();
 	}
 
 	void ScoreDisplay::ResetScore() {
-		score = 0;
+		GameState* gameState = Object::cast_to<GameState>(get_node<Node>("/root/GlobalGameState"));
+		if (gameState) gameState->ResetScore();
 		UpdateScoreText();
 	}
 
 	void ScoreDisplay::UpdateScoreText() {
 		if (score_label) {
-			String formatted_score = String::num_int64(score).pad_zeros(8);
-			score_label->set_text(formatted_score);
+			GameState* gameState = Object::cast_to<GameState>(get_node<Node>("/root/GlobalGameState"));
+			if (gameState) {
+				int score = gameState->GetScore();
+				String formatted_score = String::num_int64(score).pad_zeros(8);
+				score_label->set_text(formatted_score);
+			}
 		}
 	}
 }

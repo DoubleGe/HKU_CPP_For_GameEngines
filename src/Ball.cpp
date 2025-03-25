@@ -7,6 +7,7 @@
 #include <godot_cpp/variant/utility_functions.hpp>
 #include <godot_cpp/classes/audio_stream_player2d.hpp>
 #include <godot_cpp/classes/audio_stream.hpp>
+#include <godot_cpp/classes/scene_tree.hpp>
 
 #include "Ball.h"
 #include "Brick.h"
@@ -40,6 +41,14 @@ void Ball::_physics_process(double delta) {
 
 	Vector2 motion = velocity * delta;
 	Ref<KinematicCollision2D> collision = move_and_collide(motion);
+
+	Vector2 screen_size = get_viewport_rect().size;
+	if (get_global_position().y > screen_size.y) {
+		UtilityFunctions::print("Game Over!");
+		queue_free();
+		get_tree()->change_scene_to_file("res://Scenes/GameOver.tscn");
+		return;
+	}
 
 	if (collision.is_valid()) {
 		Object* collider_obj = collision->get_collider();
