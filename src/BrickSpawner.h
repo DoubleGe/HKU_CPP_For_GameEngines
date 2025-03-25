@@ -20,6 +20,7 @@ namespace godot {
         float brick_width = 114; 
         float brick_height = 24;
 
+        int activeBricks;
     public:
         static void _bind_methods();
 
@@ -31,6 +32,8 @@ namespace godot {
 
         void SetBrickSprites(const Array& pBrickSprites);
         Array GetBrickSprites() const;
+
+        void OnBrickDestroyed();
     };
 
 }

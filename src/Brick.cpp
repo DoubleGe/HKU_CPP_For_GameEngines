@@ -1,5 +1,6 @@
 #include "Brick.h"
 #include "ScoreDisplay.h"
+#include "BrickSpawner.h"	
 
 #include <godot_cpp/core/class_db.hpp>
 #include <godot_cpp/variant/utility_functions.hpp>
@@ -36,6 +37,10 @@ void Brick::destroy() {
 
 	ScoreDisplay* scoreDisplay = get_node<ScoreDisplay>("/root/Game/ScoreDisplay");
 	if (scoreDisplay) scoreDisplay->AddScore(100);
+
+	Node* parent = get_parent();
+	BrickSpawner* spawner = Object::cast_to<BrickSpawner>(parent);
+	if (spawner) spawner->OnBrickDestroyed();
 
 	if (breakSound && breakSound->get_stream().is_valid()) {
 		breakSound->play();

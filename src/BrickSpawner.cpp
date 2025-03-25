@@ -9,6 +9,7 @@ using namespace godot;
 
 void BrickSpawner::_bind_methods() {
     ClassDB::bind_method(D_METHOD("SpawnBricks"), &BrickSpawner::SpawnBricks);
+    ClassDB::bind_method(D_METHOD("OnBrickDestroyed"), &BrickSpawner::OnBrickDestroyed);
 
     ClassDB::bind_method(D_METHOD("SetBrickPrefab"), &BrickSpawner::SetBrickPrefab);
     ClassDB::bind_method(D_METHOD("GetBrickPrefab"), &BrickSpawner::GetBrickPrefab);
@@ -25,6 +26,8 @@ void BrickSpawner::_bind_methods() {
 void BrickSpawner::_ready() {
     Engine* engine{ Engine::get_singleton() };
     if (engine->is_editor_hint()) return;
+
+    activeBricks = 0;
 
     SpawnBricks();
 }
@@ -63,6 +66,8 @@ void BrickSpawner::SpawnBricks() {
 
                 add_child(brick);
                 brick->set_owner(get_tree()->get_edited_scene_root());
+                activeBricks++;
+                UtilityFunctions::print(activeBricks);
             }
             else {
                 UtilityFunctions::printerr("BrickSpawner: Failed to cast brick to Node2D!");
@@ -86,4 +91,13 @@ void BrickSpawner::SetBrickSprites(const Array& pBrickSprites) {
 
 Array BrickSpawner::GetBrickSprites() const {
     return brickSprites;
+}
+
+void BrickSpawner::OnBrickDestroyed() {
+    activeBricks--; 
+    UtilityFunctions::print(activeBricks);
+    if (activeBricks <= 0) {
+        activeBricks = 0;
+        SpawnBricks();
+    }
 }
